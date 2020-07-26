@@ -1,4 +1,4 @@
-![](path/to/fleeca%20heist.png)
+![](fleeca%20heist.png)
 
 # rtk_fleeca
 Fleeca heist convert from ESX to VRPEX, with some bonuses.<br>
