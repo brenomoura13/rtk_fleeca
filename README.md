@@ -1,3 +1,5 @@
+![](path/to/fleeca%20heist.png)
+
 # rtk_fleeca
 Fleeca heist convert from ESX to VRPEX, with some bonuses.<br>
 We have a [Discord](https://discord.gg/V9MT4zr) server to discuss, or if you need help!  
@@ -5,6 +7,9 @@ We have a [Discord](https://discord.gg/V9MT4zr) server to discuss, or if you nee
 
 ## About
 Fleeca bank robbery script, with mini game, synced money props and police notify.
+
+## Preview
+https://streamable.com/q2xhuc
 
 ## Dependencies
 * utk_fingerprint and utk_hackdependency: [get here](https://github.com/utkuali/Finger-Print-Hacking-Game)
