@@ -656,6 +656,7 @@ function drawTxt(text,font,x,y,scale,r,g,b,a) SetTextFont(font) SetTextScale(sca
   TriggerEvent("vrp:freezeDoors")
   while true do
     local idle = 1000
+    local ped = PlayerPedId()
     local coords = GetEntityCoords(PlayerPedId())
         for k, v in pairs(RTK.Banks) do
             if not v.onaction then
@@ -670,14 +671,31 @@ function drawTxt(text,font,x,y,scale,r,g,b,a) SetTextFont(font) SetTextScale(sca
                                     Wait(0)
                                 end
                                 if result then
-                                TriggerEvent('cancelando',true)
-                                hacking = true
-                                TriggerEvent("utk_fingerprint:Start",4,2,3,function (success,time)
+                                  local animDict = "anim@heists@keypad@"
+                                  local animLib = "idle_a"
+                                
+                                  RequestAnimDict(animDict)
+                                  while not HasAnimDictLoaded(animDict) do
+                                    Citizen.Wait(50)
+                                  end                                  
+                                  SetCurrentPedWeapon(ped, GetHashKey("WEAPON_UNARMED"),true)
+                                    Citizen.Wait(500)		
+                                  TriggerEvent('cancelando',true)
+                                  hacking = true
+                                  TriggerEvent("Notify","sucesso","<b>Conectando</b> com o sistema.",5000)
+                                  TaskPlayAnim(ped, animDict, animLib, 2.0, -2.0, -1, 1, 0, 0, 0, 0 )
+                                  Citizen.Wait(5000)
+                                  TaskStartScenarioInPlace(ped, 'WORLD_HUMAN_STAND_MOBILE', -1, true)
+                                  Citizen.Wait(2500)
+                                  TriggerEvent("mhacking:show")
+                                  TriggerEvent("mhacking:start",7,25,function (success)
                                   if success and hacking then
+                                    TriggerEvent('mhacking:hide')
                                     TriggerServerEvent("vrp:startcheck", k)
                                     hacking = false
                                     TriggerEvent('cancelando',false)
                                   else
+                                    TriggerEvent('mhacking:hide')
                                     hacking = false
                                     TriggerEvent('cancelando',false)                               
                                 end
