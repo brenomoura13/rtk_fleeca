@@ -12,7 +12,7 @@ Fleeca bank robbery script, with mini game, synced money props and police notify
 https://streamable.com/q2xhuc
 
 ## Dependencies
-* utk_fingerprint and utk_hackdependency: [get here](https://github.com/utkuali/Finger-Print-Hacking-Game)
+* `mhacking` script: [get here](https://github.com/ristukin/mhacking) or any version of this script.
 * VRPEX based on creative: [get here](https://github.com/contatosummerz/vrpex) or similar.
 
 ## Installation
