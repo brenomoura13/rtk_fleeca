@@ -32,7 +32,6 @@ AddEventHandler("vrp:startcheck", function(bank)
             if (os.time() - RTK.cooldown) > RTK.Banks[bank].lastrobbed then
                 RTK.Banks[bank].onaction = true
                 TriggerClientEvent("vrp:outcome", _source, true, bank)
-                TriggerClientEvent("vrp:policenotify", -1, bank)
             else
                 TriggerClientEvent("vrp:outcome", _source, false, "Esse banco foi assalto recentemente. Aguarde "..math.floor((RTK.cooldown - (os.time() - RTK.Banks[bank].lastrobbed)) / 60)..":"..math.fmod((RTK.cooldown - (os.time() - RTK.Banks[bank].lastrobbed)), 60))
             end

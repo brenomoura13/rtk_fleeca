@@ -146,25 +146,6 @@ function drawTxt(text,font,x,y,scale,r,g,b,a) SetTextFont(font) SetTextScale(sca
       LootCheck[name].Stop = true
       end)
 
-      RegisterNetEvent("vrp:policenotify")
-      AddEventHandler("vrp:policenotify", function(name)
-
-      local blip = nil
-
-      if rtk.checkPermission() then
-        TriggerEvent("Notify","importante","<code><b>911</b></code> Atenção, os alarmes do <b>de um banco Fleeca</b> foram acionados.",15000)
-            if not DoesBlipExist(blip) then
-            blip = AddBlipForCoord(RTK.Banks[name].doors.startloc.x, RTK.Banks[name].doors.startloc.y, RTK.Banks[name].doors.startloc.z)
-            SetBlipSprite(blip, 161)
-            SetBlipScale(blip, 2.0)
-            SetBlipColour(blip, 1)
-            PulseBlip(blip)
-            Citizen.Wait(240000)
-            RemoveBlip(blip)
-            end
-        end
-      end)
-
       -- MAIN DOOR UPDATE --
 
       AddEventHandler("vrp:freezeDoors", function()
