@@ -694,6 +694,7 @@ function drawTxt(text,font,x,y,scale,r,g,b,a) SetTextFont(font) SetTextScale(sca
                                     TriggerServerEvent("vrp:startcheck", k)
                                     hacking = false
                                     TriggerEvent('cancelando',false)
+                                    rtk.callCops()
                                   else
                                     TriggerEvent('mhacking:hide')
                                     hacking = false

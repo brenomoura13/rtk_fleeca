@@ -126,3 +126,24 @@ function rtk.checkPermission()
 	local user_id = vRP.getUserId(source)
 	return vRP.hasPermission(user_id,"bcso.permissao")
 end
+
+function rtk.callCops()
+    local source = source
+    local user_id = vRP.getUserId(source)
+    local x,y,z = vRPclient.getPosition(source)
+    if user_id then
+        local soldado = vRP.getUsersByPermission("bcso.permissao")
+        for l,w in pairs(soldado) do
+            local player = vRP.getUserSource(parseInt(w))
+            if player then
+                async(function()
+                    local id = idgens:gen()
+                    blips[id] = vRPclient.addBlip(player,x,y,z,10,84,"Roubo ao Banco Fleeca",0.5,false)
+                    vRPclient._playSound(player,"CONFIRM_BEEP","HUD_MINI_GAME_SOUNDSET")
+                    TriggerClientEvent('chatMessage',player,"911",{64,64,255},"Roubo a um Banco Fleeca foi iniciado, dirija-se até o local e intercepte os assaltantes.")
+                    SetTimeout(10000,function() vRPclient.removeBlip(player,blips[id]) idgens:free(id) end)
+                end)
+            end
+        end
+    end
+end
